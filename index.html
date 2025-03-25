@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detector Project</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/STLLoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1>Detector Project</h1>
+    </header>
+
+    <nav class="sidebar">
+        <ul>
+            <li><a href="#section1" class="nav-link">Overview</a></li>
+            <li><a href="#section2" class="nav-link">Hardware</a></li>
+            <li><a href="#section3" class="nav-link">3D Design</a></li>
+            <li><a href="#section4" class="nav-link">Software</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- Overview Section -->
+        <section id="section1">
+            <h1>Overview</h1>
+            <p class="big-text">This detector uses an Arduino Uno R3, multiple sensors, and LEDs.</p>
+            <div class="image-container">
+                <img src="image1.jpg" alt="Prototype Image">
+            </div>
+            <h2>STL File Preview</h2>
+            <div id="stl-viewer"></div>
+        </section>
+
+
+        <!-- Hardware Section -->
+        <section id="section2">
+            <h1>Hardware</h1>
+            <ul class="hardware-list">
+                <li><img src="arduino.jpg" alt="Arduino" class="arduino"> Arduino Uno R3</li>
+                <li><img src="sensor.png" alt="Sensor"> Temperature & Humidity Sensor</li>
+                <li><img src="radiation.png" alt="Radiation Sensor"> Fake Radiation Sensor</li>
+                <li><img src="led.jpg" alt="LED"> Green & Red LEDs</li>
+            </ul>
+        </section>
+
+        <!-- 3D Design Section -->
+        <section id="section3">
+            <h1>3D Design</h1>
+            <p>Here are two possible / inspired case designs for the detector.</p>
+            <div class="stl-container">
+                <div>
+                    <h3>Design 1</h3>
+                    <img src="walkie.png">
+                </div>
+                <div>
+                    <h3>Design 2</h3>
+                    <img src="geiger-counter.png">
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Software Section -->
+        <section id="section4">
+            <h1>Software</h1>
+            <p>This project has two main software components:</p>
+            <ul class="software-list">
+                <li><strong>Arduino Code:</strong> Controls sensors, LEDs, and button input.</li>
+            </ul>
+            <p>Example Arduino logic:</p>
+            <pre>
+void loop() {
+    int tempValue = analogRead(tempPin);  // Temperature sensor value
+    int heatValue = analogRead(heatPin);  // Heat sensor value
+
+    if (tempValue > tempThreshold) {
+        digitalWrite(ledGreen, HIGH);
+        digitalWrite(ledRed, LOW);
+    } else if (tempValue < tempThreshold) {
+        digitalWrite(ledGreen, LOW);
+        digitalWrite(ledRed, HIGH);
+    }
+
+    if (heatValue > heatThreshold) {
+        digitalWrite(ledGreen, HIGH);
+        digitalWrite(ledRed, LOW);
+    } else if (heatValue < heatThreshold) {
+        digitalWrite(ledGreen, LOW);
+        digitalWrite(ledRed, HIGH);
+    }
+
+    if (tempValue > tempThreshold && heatValue > heatThreshold) {
+        digitalWrite(ledGreen, HIGH);
+        digitalWrite(ledRed, LOW);
+    } else if (tempValue < tempThreshold && heatValue < heatThreshold) {
+        digitalWrite(ledGreen, LOW);
+        digitalWrite(ledRed, HIGH);
+    }
+}
+</pre>
+
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Detector Project</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

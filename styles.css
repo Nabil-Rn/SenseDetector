@@ -1,0 +1,214 @@
+/* General Styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #f4f4f4;
+    min-height: 100vh;  /* Ensures full height */
+    overflow-x: hidden; /* Prevents horizontal scrolling */
+}
+
+/* Header */
+header {
+    width: 100%;
+    background: #222;
+    color: white;
+    text-align: center;
+    padding: 25px 10px;
+    font-size: 28px;
+    font-weight: bold;
+    box-sizing: border-box; /* Ensures padding doesn't affect width */
+}
+
+/* Sidebar Navigation */
+.sidebar {
+    position: fixed;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-radius: 8px;
+    width: 200px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar ul li {
+    margin: 15px 0;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: white;
+    padding: 12px 18px;
+    display: block;
+    font-size: 18px;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.sidebar ul li a.active {
+    background: red;
+}
+
+/* Main Sections */
+main {
+    flex: 1;
+    width: 80%;
+    max-width: 900px;
+    margin: 0 auto; /* Centers content */
+    padding-top: 10px; /* Prevents overlapping with header */
+}
+
+section {
+    height: 110vh;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 22px;
+    border-bottom: 2px solid #ccc;
+}
+
+/* Bigger text for Overview */
+.big-text {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Image container */
+.image-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.image-container img {
+    width: 250px;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* STL Viewer */
+.stl-viewer {
+    width: 300px;
+    height: 300px;
+    border: 1px solid #ccc;
+}
+
+/* Hardware List */
+.hardware-list {
+    list-style: none;
+    padding: 0;
+}
+
+.hardware-list li {
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    margin: 10px 0;
+}
+
+.hardware-list img {
+    width: 80px;
+    margin-right: 10px;
+}
+
+.hardware-list img.arduino {
+    width: 350px; 
+    margin-right: 10px;
+}
+
+/* 3D Design Section Container */
+.stl-container {
+    display: flex;
+    justify-content: center;  /* Center content horizontally */
+    gap: 30px;  /* Space between the images */
+    flex-wrap: wrap;  /* Allow images to wrap onto new lines if necessary */
+    margin: 20px 0;  /* Add margin around the section */
+}
+
+/* 3D Design Section Images */
+.stl-container img {
+    flex: 0 1 45%;  /* Let the images take up 45% of the container width */
+    max-width: 500px;  /* Prevent them from being too large */
+    width: 100%;  /* Make them responsive */
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;  /* Add some space at the bottom */
+}
+
+
+/* Software List */
+.software-list {
+    list-style-type: square;
+    text-align: left;
+}
+
+/* Code Styling */
+pre {
+    background: #222;
+    color: limegreen;
+    padding: 15px;
+    border-radius: 5px;
+    text-align: left;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+/* Footer */
+footer {
+    width: 100%;
+    background: #222;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 18px;
+    box-sizing: border-box; /* Ensures padding doesn't affect width */
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    main {
+        width: 90%;
+    }
+
+    .sidebar {
+        right: 10px;
+        padding: 15px;
+    }
+
+    .sidebar ul li a {
+        font-size: 16px;
+        padding: 10px 14px;
+    }
+
+    section {
+        font-size: 18px;
+        padding: 30px;
+    }
+
+    .stl-container {
+        flex-direction: column;  
+        gap: 20px;
+    }
+
+    .stl-container img {
+        max-width: 90%; 
+    }
+
+    .image-container {
+        flex-direction: column;
+    }
+}
